@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header_row">
+                <h1 class="title">Web-сервис отправки отзывов</h1>
+                <div class="menu">
+                    {% block menu %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+   {% endblock %}
+</body>
+</html>

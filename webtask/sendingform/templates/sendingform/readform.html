@@ -1,0 +1,44 @@
+{% extends 'sendingform/base.html' %}
+
+{% block menu %}
+<a class="menu-element" href="{% url 'send-form' %}">Написать отзыв</a>
+{% endblock %}
+
+{% block title %}
+Просмотр отзывов
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="form_filter">
+            <form class="form_filter-element" action="" method="get">
+                {{ form.as_p }}
+                <input class="button" type="submit" value="Найти">
+            </form>
+        </div>
+        {% if feedback %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="list-content">Автор </th>
+                        <th class="list-content">Текст отзыва </th>
+                        <th class="list-content">Оценка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {% for el in feedback %}
+                    <tr>
+                        <td class="list-content">{{ el.name }}</td>
+                        <td class="list-content " style="text-align: left;">{{ el.text}}</td>
+                        <td class="list-content">{{ el.estimation }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p style="text-align:center;">Нет записей для отображения</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

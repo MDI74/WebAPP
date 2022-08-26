@@ -1,0 +1,28 @@
+{% extends 'sendingform/base.html' %}
+
+{% block title %}
+Отправка отзывов
+{% endblock %}
+
+{% block menu %}
+<a class="menu-element" href="{% url 'read-form' %}">Посмотреть отзывы</a>
+{% endblock %}
+
+{% block content %}
+    <div class="form-send">
+        <div class="form-title">
+            <h1 class="title">Напишите свой отзыв</h1>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.text }}<br>
+            {{ form.estimation }}<br>
+            {{ form.ordering }}<br>
+            <button class="button" type="submit">Отправить</button>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+{% endblock %}
+
+
