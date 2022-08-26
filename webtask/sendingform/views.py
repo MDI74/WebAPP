@@ -32,7 +32,7 @@ def read(request):
             feedback = feedback.filter(name=form.cleaned_data["name"]) #Фильтрует записи по полю name
 
         if form.cleaned_data["text"]:
-            feedback = feedback.filter(text__contains=form.cleaned_data["text"]) #Фильтрует записи по полю текст
+            feedback = feedback.filter(text__contains=form.cleaned_data["text"]) #Фильтрует записи по полю text
 
         if form.cleaned_data["estimation"]:
             feedback = feedback.filter(estimation=form.cleaned_data["estimation"])
